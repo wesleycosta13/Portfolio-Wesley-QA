@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnContato = document.getElementById('btnContato');
     if (btnContato) {
         btnContato.addEventListener('click', () => {
-            window.location.href = 'contato.html';
+            alert('Site ainda em desenvolvimento!');
         });
     }
 });
@@ -61,3 +61,4 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('startButton').addEventListener('click', function() {
     alert('SITE AINDA EM DESENVOLVIMENTO!');
 });
+
