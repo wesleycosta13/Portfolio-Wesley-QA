@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fechar menu ao clicar em um link
     mobileNavLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
+        link.addEventListener('click', (event) => {
+            closeMobileMenu();
+        });
     });
 
     // Fechar menu ao clicar no botão contato mobile
@@ -153,8 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Scroll Suave para Links Internos (Nav & Footer)
-    const smoothLinks = document.querySelectorAll('nav a, .footer-links a');
+    // 3. Scroll Suave para Links Internos (Nav & Footer & Mobile)
+    const smoothLinks = document.querySelectorAll('nav a, .footer-links a, .mobile-nav-link');
 
     smoothLinks.forEach(link => {
         // Ignora links que abrem o modal ou não são âncoras locais
