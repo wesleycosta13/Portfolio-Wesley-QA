@@ -1,64 +1,140 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Primeiro bloco de código para scroll suave
-    const link1 = document.getElementById("link1");
-    const link2 = document.getElementById("link2");
-    const link3 = document.getElementById("link3");
+    // 1. Controle do Modal de Contato
+    const modal = document.getElementById('contactModal');
+    const btnContatoNav = document.getElementById('btnContato');
+    const btnContatoFooter = document.getElementById('linkContatoFooter');
+    const closeBtn = document.querySelector('.close-btn');
 
-    if (link1) {
-        link1.addEventListener('click', () => {
-            scrollToElement('#Home');
-        });
-    }
-
-    if (link2) {
-        link2.addEventListener('click', () => {
-            scrollToElement('#Skills');
-        });
-    }
-
-    if (link3) {
-        // Corrigido ID sem espaços
-        link3.addEventListener('click', () => {
-            scrollToElement('#MyProjects');
-        });
-    }
-
-    // Função de scroll suave
-    function scrollToElement(selector) {
-        const element = document.querySelector(selector);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+    function openModal(event) {
+        if (event) event.preventDefault();
+        if (modal) {
+            modal.style.display = 'flex';
+            // Pequeno delay para animação de opacidade funcionar suavemente
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
         }
     }
 
-    // Segundo bloco de código para scroll suave de todos os links no nav
-    const links = document.querySelectorAll('nav a');
+    function closeModal() {
+        if (modal) {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300); // Tempo correspondente à transição do CSS
+        }
+    }
 
-    links.forEach(link => {
+    if (btnContatoNav) {
+        btnContatoNav.addEventListener('click', openModal);
+    }
+
+    if (btnContatoFooter) {
+        btnContatoFooter.addEventListener('click', openModal);
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Fechar ao clicar fora do conteúdo do modal
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    // 2. Copiar E-mail para a Área de Transferência
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const emailTextElement = document.getElementById('emailText');
+
+    if (copyEmailBtn && emailTextElement) {
+        copyEmailBtn.addEventListener('click', () => {
+            const email = emailTextElement.innerText || emailTextElement.textContent;
+            
+            navigator.clipboard.writeText(email).then(() => {
+                // Feedback visual de sucesso
+                copyEmailBtn.innerHTML = '<i class="ri-checkbox-circle-line"></i> Copiado!';
+                copyEmailBtn.classList.add('success');
+                
+                // Resetar botão após 2 segundos
+                setTimeout(() => {
+                    copyEmailBtn.innerHTML = '<i class="ri-file-copy-line"></i> Copiar';
+                    copyEmailBtn.classList.remove('success');
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar e-mail: ', err);
+            });
+        });
+    }
+
+    // 3. Scroll Suave para Links Internos (Nav & Footer)
+    const smoothLinks = document.querySelectorAll('nav a, .footer-links a');
+
+    smoothLinks.forEach(link => {
+        // Ignora links que abrem o modal ou não são âncoras locais
+        if (link.getAttribute('href') === '#' || link.id === 'linkContatoFooter' || link.id === 'btnContato') {
+            return;
+        }
+
         link.addEventListener('click', (event) => {
-            event.preventDefault(); // Previne o comportamento padrão de navegação
+            event.preventDefault(); // Evita comportamento padrão de pulo de página
 
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
                 targetElement.scrollIntoView({
-                    behavior: 'smooth'
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
     });
 
-    // Código para redirecionar ao clicar no botão "Contato"
-    const btnContato = document.getElementById('btnContato');
-    if (btnContato) {
-        btnContato.addEventListener('click', () => {
-            alert('Site ainda em desenvolvimento!');
+    // 4. Verificação Segura do Botão Começar (evita erros se estiver comentado no HTML)
+    const startButton = document.getElementById('startButton');
+    if (startButton) {
+        startButton.addEventListener('click', () => {
+            const projectsSection = document.getElementById('MyProjects');
+            if (projectsSection) {
+                projectsSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     }
-});
 
-document.getElementById('startButton').addEventListener('click', function() {
-    alert('SITE AINDA EM DESENVOLVIMENTO!');
+    // 5. Scroll Reveal com IntersectionObserver
+    const revealMap = [
+        { selector: 'header .content',  cls: 'reveal-left'  },
+        { selector: 'header .image',    cls: 'reveal-right' },
+        { selector: 'section .header', cls: 'reveal'        },
+        { selector: '.sub-header',      cls: 'reveal'        },
+        { selector: '.features .card',  cls: 'reveal', stagger: true },
+        { selector: '.project-card',    cls: 'reveal', stagger: true },
+        { selector: '.tech-item',       cls: 'reveal', stagger: true },
+        { selector: '.footer-content',  cls: 'reveal'        },
+    ];
+
+    revealMap.forEach(({ selector, cls, stagger }) => {
+        document.querySelectorAll(selector).forEach((el, i) => {
+            el.classList.add(cls);
+            if (stagger) {
+                el.style.transitionDelay = `${i * 0.07}s`;
+            }
+        });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+        revealObserver.observe(el);
+    });
 });
 
