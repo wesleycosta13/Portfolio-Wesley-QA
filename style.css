@@ -952,6 +952,32 @@ footer {
 
 .hamburger span {
     display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-main);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* ===== Animação para Mensagem de Cópia ===== */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    90% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+}
     width: 20px;
     height: 2px;
     background: var(--text-main);

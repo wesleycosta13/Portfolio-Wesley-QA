@@ -68,6 +68,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 2.5 Copiar E-mail do Link Social
+    const emailSocialLink = document.getElementById('emailSocialLink');
+    if (emailSocialLink) {
+        emailSocialLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            const email = 'wesleycoliveira2003@gmail.com';
+            
+            navigator.clipboard.writeText(email).then(() => {
+                // Feedback visual de sucesso
+                const originalHTML = emailSocialLink.innerHTML;
+                emailSocialLink.innerHTML = '<i class="ri-checkbox-circle-line"></i>';
+                emailSocialLink.style.color = '#2ecc71';
+                
+                // Mostrar mensagem
+                const message = document.createElement('div');
+                message.textContent = 'Email copiado!';
+                message.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: #2ecc71;
+                    color: white;
+                    padding: 1rem 2rem;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    z-index: 9999;
+                    animation: fadeInOut 2s ease-in-out;
+                `;
+                document.body.appendChild(message);
+                
+                // Resetar link após 2 segundos
+                setTimeout(() => {
+                    emailSocialLink.innerHTML = originalHTML;
+                    emailSocialLink.style.color = '';
+                    message.remove();
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar e-mail: ', err);
+            });
+        });
+    }
+
     // 3. Scroll Suave para Links Internos (Nav & Footer)
     const smoothLinks = document.querySelectorAll('nav a, .footer-links a');
 
