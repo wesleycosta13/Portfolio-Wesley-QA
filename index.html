@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfólio de Wesley Costa Oliveira - Analista de Qualidade de Software (QA) especializado em testes automatizados com Playwright, Cypress e CI/CD.">
     <meta name="keywords" content="QA, Testes Automatizados, Playwright, Cypress, Qualidade de Software, Portfolio">
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:title" content="Wesley Costa | Analista de QA & Automação de Testes">
+    <meta property="og:description" content="QA Engineer especializado em Playwright, Cypress, TypeScript e CI/CD. Veja meus projetos de automação de testes.">
+    <meta property="og:image" content="https://wesleycosta13.github.io/Portfolio-Wesley-QA/imagens/header.jpeg">
+    <meta property="og:url" content="https://wesleycosta13.github.io/Portfolio-Wesley-QA/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Wesley Costa | Analista de QA & Automação de Testes</title>
@@ -25,6 +34,11 @@
             <li class="link"><a href="#About">Sobre</a></li>
         </ul>
         <button class="btn" id="btnContato">Contato</button>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
     <header id="Home" class="container">
@@ -32,17 +46,23 @@
             <span class="blur"></span>
             <span class="blur"></span>
             <h1>Olá, eu sou <span>Wesley</span>, Analista de Qualidade de Software</h1>
-            <p> Olá, meu nome é Wesley Costa Oliveira, tenho 19 anos e sou do Ceará. Sou um jovem apaixonado pela área de Qualidade de Software e pela possibilidade de garantir que sistemas funcionem de forma eficiente e confiável. Durante minha trajetória acadêmica, desenvolvi raciocínio lógico, atenção aos detalhes e capacidade de análise crítica, habilidades essenciais para atuar com testes e validação de sistemas.
-            <br><br>
-            Desde então, venho me dedicando a aprimorar minhas habilidades em testes manuais e automação, validação de sistemas, documentação de casos de teste e análise de resultados para identificar falhas e propor melhorias. Tenho experiência em utilizar ferramentas de suporte a testes, executar scripts automatizados e garantir que cada entrega esteja alinhada aos padrões de qualidade.
-            <br><br>
-            Sou uma pessoa comprometida, organizada e com facilidade para trabalhar em equipe, sempre buscando aprender novas metodologias e tecnologias para contribuir de forma efetiva em projetos desafiadores e entregar software de alta qualidade.</p>
-            <a href="curriculo.pdf" download="Wesley_Costa_Curriculo.pdf" class="btn" id="btnDownloadCV">
-                <i class="ri-file-download-line"></i> Baixar Currículo
-            </a>
+            <!-- Links Sociais -->
+            <div class="hero-socials">
+                <a href="https://www.linkedin.com/in/wesley-oliveira-costa/" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="LinkedIn">
+                    <i class="ri-linkedin-box-fill"></i>
+                </a>
+                <a href="https://github.com/wesleycosta13" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="GitHub">
+                    <i class="ri-github-fill"></i>
+                </a>
+                <a href="mailto:wesleycoliveira2003@gmail.com" class="hero-social-link" title="E-mail">
+                    <i class="ri-mail-fill"></i>
+                </a>
+            </div>
+            <p>Analista de Qualidade de Software (QA) com foco em automação End-to-End, testes de API e integração contínua. Especializado em criar suites de testes robustas com <strong>Playwright</strong> e <strong>Cypress</strong>, utilizando as melhores práticas do mercado: Page Object Model, Custom Fixtures e pipelines de CI/CD com GitHub Actions.</p>
+            <!-- Stats -->
         </div>
         <div class="image">
-            <img src="imagens/header.png" alt="Imagem de cabeçalho">
+            <img src="imagens/header.jpeg" alt="Imagem de cabeçalho">
         </div>
     </header>
     
@@ -275,7 +295,7 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="footer-logo">
-                    <img src="imagens/perfil.jpeg" alt="Foto de perfil">
+                    <img src="imagens/perfil.png" alt="Foto de perfil">
                 </div>
                 <div class="footer-info">
                     <h4>Wesley Costa</h4>
