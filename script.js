@@ -1,4 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Controle do Menu Mobile
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const btnContatoMobile = document.getElementById('btnContatoMobile');
+
+    function toggleMobileMenu() {
+        mobileMenu.classList.toggle('active');
+        // Animar ícones do hamburger
+        hamburger.classList.toggle('active');
+    }
+
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMobileMenu);
+    }
+
+    // Fechar menu ao clicar em um link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Fechar menu ao clicar no botão contato mobile
+    if (btnContatoMobile) {
+        btnContatoMobile.addEventListener('click', () => {
+            closeMobileMenu();
+            // Abre o modal (será tratado pela seção 1)
+            const modal = document.getElementById('contactModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 10);
+            }
+        });
+    }
+
     // 1. Controle do Modal de Contato
     const modal = document.getElementById('contactModal');
     const btnContatoNav = document.getElementById('btnContato');
