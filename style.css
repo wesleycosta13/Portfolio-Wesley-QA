@@ -48,7 +48,7 @@ body {
 
 /* ===== Mobile Menu (Hidden by default) ===== */
 .mobile-menu {
-    display: none !important;
+    display: none;
 }
 
 /* Navbar Glassmorphism */
