@@ -194,6 +194,7 @@ header .content h1 {
 
 header .content h1 span {
     background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
@@ -292,18 +293,22 @@ header .blur:nth-child(2) { bottom: -10%; right: -10%; background-color: var(--s
 /* Projects Section */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .project-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 24px;
-    padding: 2.25rem 1.75rem;
+    padding: 1.9rem 1.4rem;
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-height: 100%;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -371,6 +376,12 @@ header .blur:nth-child(2) { bottom: -10%; right: -10%; background-color: var(--s
     font-weight: 600;
 }
 
+.project-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 .project-desc {
     color: var(--text-muted);
     font-size: 0.92rem;
@@ -413,6 +424,10 @@ header .blur:nth-child(2) { bottom: -10%; right: -10%; background-color: var(--s
     padding: 0.25rem 0.65rem;
     border-radius: 6px;
     border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.project-actions {
+    margin-top: auto;
 }
 
 .btn-project {
@@ -897,6 +912,7 @@ footer {
     font-size: 1.65rem;
     font-weight: 700;
     background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1;
@@ -996,7 +1012,6 @@ footer {
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
 }
-}
 
 .hamburger.open span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
@@ -1089,7 +1104,7 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .tech-grid {
         grid-template-columns: repeat(4, 1fr);
