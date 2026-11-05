@@ -69,7 +69,7 @@
                     <i class="ri-mail-fill"></i>
                 </a>
             </div>
-            <p>Analista de Qualidade de Software (QA) com foco em <strong>testes manuais</strong> e <strong>automação End-to-End</strong>. Especializado em validação de funcionalidades, testes de API e criação de suites robustas com <strong>Playwright</strong> e <strong>Cypress</strong>. Utilizo as melhores práticas do mercado: Page Object Model, Custom Fixtures e pipelines de CI/CD com GitHub Actions.</p>
+            <p>Profissional de <strong>Qualidade de Software (QA)</strong>, com experiência em testes manuais, automação End-to-End e testes de API. Também gosto de desenvolver soluções e escrever código, explorando tecnologias como <strong>JavaScript, TypeScript, React e Node.js</strong>. Busco unir qualidade e desenvolvimento para construir aplicações mais confiáveis e eficientes.</p>
             <!-- Stats -->
         </div>
         <div class="image">
@@ -205,10 +205,51 @@
     <section id="MyProjects" class="container">
         <h2 class="header">MEUS PROJETOS</h2>
         <p class="sub-header">
-           Projetos reais de testes automatizados desenvolvidos com as tecnologias líderes do mercado de Qualidade de Software.
+           Projetos de qualidade de software e desenvolvimento. Selecione uma categoria para visualizar.
         </p>
-        <div class="projects-grid">
-            <!-- Card 1: Playwright + TypeScript -->
+        <div class="project-tabs" role="tablist" aria-label="Categorias de projetos">
+            <button class="project-tab active" id="qa-tab" type="button" role="tab" aria-selected="true" aria-controls="qa-projects" tabindex="0">
+                QA
+            </button>
+            <button class="project-tab" id="dev-tab" type="button" role="tab" aria-selected="false" aria-controls="dev-projects" tabindex="-1">
+                DEV
+            </button>
+        </div>
+        <div class="project-panel" id="qa-projects" role="tabpanel" aria-labelledby="qa-tab">
+            <div class="projects-grid">
+            <!-- Card 1: Playwright + Bianca Lanches -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon"><i class="ri-shopping-cart-2-line"></i></span>
+                    <span class="project-badge playwright">Playwright</span>
+                </div>
+                <div class="project-content">
+                    <h3>Bianca Lanches - Testes E2E</h3>
+                    <p class="project-desc">
+                        Suíte de testes End-to-End para o sistema de pedidos Bianca Lanches, cobrindo a loja, o painel administrativo e a API.
+                    </p>
+                    <ul class="project-features">
+                        <li><i class="ri-checkbox-circle-line"></i> Cenários de catálogo, carrinho e checkout</li>
+                        <li><i class="ri-checkbox-circle-line"></i> Testes do painel administrativo e de segurança</li>
+                        <li><i class="ri-checkbox-circle-line"></i> Validação de endpoints HTTP e experiência mobile</li>
+                        <li><i class="ri-checkbox-circle-line"></i> Execução com Docker e pipeline no GitHub Actions</li>
+                    </ul>
+                    <div class="project-techs">
+                        <span>TypeScript</span>
+                        <span>Playwright</span>
+                        <span>Faker.js</span>
+                        <span>Docker</span>
+                        <span>GitHub Actions</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/wesleycosta13/bianca-lanches-site" target="_blank" rel="noopener noreferrer" class="btn btn-project">
+                        <i class="ri-github-fill"></i> Repositório
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: Playwright + TypeScript -->
             <div class="project-card">
                 <div class="project-header">
                     <span class="project-icon"><i class="ri-play-circle-line"></i></span>
@@ -239,7 +280,7 @@
                 </div>
             </div>
 
-            <!-- Card 2: Cypress + DemoQA -->
+            <!-- Card 3: Cypress + DemoQA -->
             <div class="project-card">
                 <div class="project-header">
                     <span class="project-icon"><i class="ri-code-s-slash-line"></i></span>
@@ -270,7 +311,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: Cypress + OBI Simulator -->
+            <!-- Card 4: Cypress + OBI Simulator -->
             <div class="project-card">
                 <div class="project-header">
                     <span class="project-icon"><i class="ri-shield-check-line"></i></span>
@@ -300,7 +341,7 @@
                 </div>
             </div>
 
-            <!-- Card 4: Playwright + SauceDemo -->
+            <!-- Card 5: Playwright + SauceDemo -->
             <div class="project-card">
                 <div class="project-header">
                     <span class="project-icon"><i class="ri-shopping-cart-2-line"></i></span>
@@ -328,6 +369,101 @@
                     <a href="https://github.com/wesleycosta13/SouceDemo-E2E" target="_blank" rel="noopener noreferrer" class="btn btn-project">
                         <i class="ri-github-fill"></i> Repositório
                     </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="project-panel" id="dev-projects" role="tabpanel" aria-labelledby="dev-tab" hidden>
+            <div class="projects-grid dev-projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon"><i class="ri-code-s-slash-line"></i></span>
+                        <span class="project-badge">Desenvolvimento</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Kustomize</h3>
+                        <p class="project-desc">
+                            Site institucional de uma loja de produtos personalizados sob demanda, desenvolvido para apresentar o trabalho da marca e atrair clientes pelo WhatsApp.
+                        </p>
+                        <ul class="project-features">
+                            <li><i class="ri-checkbox-circle-line"></i> Layout responsivo com animações de scroll</li>
+                            <li><i class="ri-checkbox-circle-line"></i> Galeria de trabalhos com visualização Lightbox</li>
+                            <li><i class="ri-checkbox-circle-line"></i> FAQ interativo e chamada para WhatsApp</li>
+                            <li><i class="ri-checkbox-circle-line"></i> SEO e compartilhamento social com Open Graph</li>
+                        </ul>
+                        <div class="project-techs">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript ES6</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://kustomize-store.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-project">
+                            <i class="ri-external-link-line"></i> Acessar site
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon"><i class="ri-flow-chart"></i></span>
+                        <span class="project-badge">Desenvolvimento</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>FlowResolvy</h3>
+                        <p class="project-desc">
+                            Plataforma de gestão interna de chamados para pequenas e médias empresas, com isolamento de dados entre organizações e controle de acesso por perfil.
+                        </p>
+                        <ul class="project-features">
+                            <li><i class="ri-checkbox-circle-line"></i> Aplicação multiempresa com dados isolados por organização</li>
+                            <li><i class="ri-checkbox-circle-line"></i> Gestão de chamados e permissões para proprietários, atendentes e clientes</li>
+                            <li><i class="ri-checkbox-circle-line"></i> API REST documentada com Swagger/OpenAPI</li>
+                            <li><i class="ri-checkbox-circle-line"></i> Ambiente completo orquestrado com Docker Compose</li>
+                        </ul>
+                        <div class="project-techs">
+                            <span>React</span>
+                            <span>TypeScript</span>
+                            <span>NestJS</span>
+                            <span>PostgreSQL</span>
+                            <span>Prisma</span>
+                            <span>Docker</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://flowresolvy.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-project">
+                            <i class="ri-external-link-line"></i> Acessar site
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon"><i class="ri-store-2-line"></i></span>
+                        <span class="project-badge">Desenvolvimento</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Bianca Lanches</h3>
+                        <p class="project-desc">
+                            Sistema de autoatendimento, cardápio digital e gestão de pedidos, com vitrine para clientes e painel administrativo.
+                        </p>
+                        <ul class="project-features">
+                            <li><i class="ri-checkbox-circle-line"></i> Catálogo, carrinho e checkout</li>
+                            <li><i class="ri-checkbox-circle-line"></i> Painel para gestão de pedidos e produtos</li>
+                            <li><i class="ri-checkbox-circle-line"></i> Backend em ASP.NET Core e frontend em React</li>
+                        </ul>
+                        <div class="project-techs">
+                            <span>React</span>
+                            <span>TypeScript</span>
+                            <span>.NET 8</span>
+                            <span>PostgreSQL</span>
+                            <span>Docker</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://github.com/wesleycosta13/bianca-lanches-site" target="_blank" rel="noopener noreferrer" class="btn btn-project">
+                            <i class="ri-github-fill"></i> Repositório
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

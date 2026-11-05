@@ -1,4 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Navegação das abas de projetos
+    const projectTabs = Array.from(document.querySelectorAll('.project-tab'));
+    const projectPanels = Array.from(document.querySelectorAll('.project-panel'));
+
+    function activateProjectTab(tab) {
+        projectTabs.forEach(projectTab => {
+            const isSelected = projectTab === tab;
+            projectTab.classList.toggle('active', isSelected);
+            projectTab.setAttribute('aria-selected', String(isSelected));
+            projectTab.tabIndex = isSelected ? 0 : -1;
+        });
+
+        const activePanelId = tab.getAttribute('aria-controls');
+        projectPanels.forEach(panel => {
+            panel.hidden = panel.id !== activePanelId;
+        });
+    }
+
+    projectTabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateProjectTab(tab));
+        tab.addEventListener('keydown', event => {
+            let nextIndex;
+
+            if (event.key === 'ArrowRight') {
+                nextIndex = (index + 1) % projectTabs.length;
+            } else if (event.key === 'ArrowLeft') {
+                nextIndex = (index - 1 + projectTabs.length) % projectTabs.length;
+            } else if (event.key === 'Home') {
+                nextIndex = 0;
+            } else if (event.key === 'End') {
+                nextIndex = projectTabs.length - 1;
+            } else {
+                return;
+            }
+
+            event.preventDefault();
+            projectTabs[nextIndex].focus();
+            activateProjectTab(projectTabs[nextIndex]);
+        });
+    });
+
     // 0. Controle do Menu Mobile
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -224,4 +265,3 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 });
-

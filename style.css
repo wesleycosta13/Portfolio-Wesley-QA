@@ -291,13 +291,53 @@ header .blur:nth-child(2) { bottom: -10%; right: -10%; background-color: var(--s
 }
 
 /* Projects Section */
+#MyProjects {
+    max-width: 1400px;
+}
+
+.project-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 0 auto 2rem;
+}
+
+.project-tab {
+    min-width: 120px;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    background: var(--card-bg);
+    color: var(--text-muted);
+    font: 600 0.95rem var(--font-title);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.project-tab:hover,
+.project-tab:focus-visible {
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+.project-tab.active {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
+}
+
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 1.5rem;
     align-items: stretch;
     max-width: 1400px;
     margin: 0 auto;
+}
+
+.dev-projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .project-card {
@@ -1106,6 +1146,9 @@ footer {
     .projects-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+    .projects-grid.dev-projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
     .tech-grid {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -1137,6 +1180,9 @@ footer {
         grid-template-columns: 1fr;
     }
     .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .projects-grid.dev-projects-grid {
         grid-template-columns: 1fr;
     }
     .tech-grid {
